@@ -25,7 +25,7 @@ namespace EduParkingCibertec_proyecto.Controllers
 
 		public IActionResult ingresarSistema()
 		{
-			return View();
+			return View("../Registro/ingresarSistema");
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
