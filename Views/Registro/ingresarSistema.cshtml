@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+	<title>Inicio de Sesión</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+	<div class="row mt-5 justify-content-center">
+		<div class="col-sm-4">
+			<div class="card">
+				<div class="card-header">
+					Iniciar Sesión
+				</div>
+				<div class="card-body">
+					<form id="login-form">
+						<input class="form-control mb-3" type="text" placeholder="Correo" id="username" />
+						<input class="form-control mb-3" type="password" placeholder="Contraseña" id="password" />
+						<div class="d-grid gap-2 mb-3">
+							<button class="btn btn-primary" type="submit">Iniciar Sesion</button>
+						</div>
+						<div class="d-grid gap-2 mb-3">
+							<button class="btn btn-primary" onclick="window.location.href = 'https://www.google.com.pe/?gfe_rd=cr&dcr=0&ei=TzvEWfbuCZCz-wWGtbZQ';">Cancelar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		document.getElementById('login-form').addEventListener('submit', function (event) {
+			event.preventDefault();
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+
+			// Validar que el usuario tenga una letra al inicio y 9 dígitos, en total 10 caracteres
+			const usernamePattern = /^[a-zA-Z]\d{9}$/;
+
+			// Validar que la contraseña tenga al menos 8 caracteres, incluya al menos una letra mayúscula, una letra minúscula y un número
+			const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+			if (!usernamePattern.test(username)) {
+				alert('El usuario debe comenzar con una letra seguida de 9 dígitos, en total 10 caracteres.');
+				return;
+			}
+
+			if (!passwordPattern.test(password)) {
+				alert('La contraseña debe tener al menos 8 caracteres, incluir al menos una letra mayúscula, una letra minúscula y un número.');
+				return;
+			}
+
+			// Aquí puedes añadir la lógica de autenticación
+			alert('Inicio de sesión exitoso');
+			window.location.href = 'Registro.html'; // Reemplaza 'Registro.html' con la URL de la página de destino
+	</script>
+
+
+</body>
+</html>
